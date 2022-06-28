@@ -28,11 +28,25 @@ export CFLAGS=${CFLAGS/-Os/-O2}
 export CXXFLAGS=${CXXFLAGS/-Os/-O2}
 export CPPFLAGS=${CPPFLAGS/-Os/-O2}
 
-build() {
+snapshot() {
+	echo "**** snapshot  *****"
+	pwd
+	mkdir -p "$srcdir"
+	cd "${SRCDEST:-$srcdir}"
+	git clone https://github.com/scipy/scipy.git
+	git checkout "$com"
 	git submodule update --init
+	pwd
+}
+
+build() {
+	echo "**** building  *****"
+	pwd
 	python3 setup.py config_fc --fcompiler=gnu95 build
 }
 
 package() {
+	echo "**** package  *****"
+	pwd
 	python3 setup.py install --prefix=/usr --root="$pkgdir"
 }
