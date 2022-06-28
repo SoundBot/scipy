@@ -39,7 +39,11 @@ fetch() {
 	git checkout "$com"
 	git submodule update --init
 	cp /home/appuser/missing-int64_t.patch .
-	ls
+	pwd
+}
+
+verify() {
+	echo "*** verify ***"
 	pwd
 }
 
