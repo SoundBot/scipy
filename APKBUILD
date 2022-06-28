@@ -28,8 +28,8 @@ export CFLAGS=${CFLAGS/-Os/-O2}
 export CXXFLAGS=${CXXFLAGS/-Os/-O2}
 export CPPFLAGS=${CPPFLAGS/-Os/-O2}
 
-snapshot() {
-	echo "**** snapshot  *****"
+fetch() {
+	echo "**** fetching  *****"
 	pwd
 	mkdir -p "$srcdir"
 	cd "${SRCDEST:-$srcdir}"
