@@ -1,7 +1,7 @@
 # Contributor: Martell Malone <martellmalone@gmail.com>
 # Maintainer:
 pkgname=py3-scipy
-pkgver=1.7.2
+pkgver=1.8.1
 pkgrel=0
 pkgdesc="Python library for scientific computing"
 url="https://www.scipy.org/"
