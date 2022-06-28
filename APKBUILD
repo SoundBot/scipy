@@ -34,6 +34,8 @@ snapshot() {
 	mkdir -p "$srcdir"
 	cd "${SRCDEST:-$srcdir}"
 	git clone https://github.com/scipy/scipy.git
+	cd scipy
+	pwd
 	git checkout "$com"
 	git submodule update --init
 	pwd
