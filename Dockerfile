@@ -19,4 +19,4 @@ RUN pip3 install cython Tempita
 RUN pip3 install ./numpy-1.22.3-cp311-cp311-linux_x86_64.whl
 RUN pip3 install pybind11==2.9.2
 
-RUN abuild checksum && abuild -r
+RUN abuild snapshot && checksum && abuild -r
