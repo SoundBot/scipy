@@ -11,18 +11,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-  steps:
-      - uses: actions/checkout@v3
-      - name: Build the Docker image
-        run: |
-             docker build . --file Dockerfile --tag scipy
-             docker run --name buildcontainer scipy
-      - name: Copy container build output
-        run:
-          docker cp buildcontainer:/home/appuser/packages/home/x86_64 apkout
-      - name: Copy generated apk
-        uses: actions/upload-artifact@v2
-        with:
-          name: scipy
-          path: ${{ github.workspace }}/apkout/
+    steps:
+        - uses: actions/checkout@v3
+        - name: Build the Docker image
+          run: |
+               docker build . --file Dockerfile --tag scipy
+               docker run --name buildcontainer scipy
+        - name: Copy container build output
+          run:
+            docker cp buildcontainer:/home/appuser/packages/home/x86_64 apkout
+        - name: Copy generated apk
+          uses: actions/upload-artifact@v2
+          with:
+            name: scipy
+            path: ${{ github.workspace }}/apkout/
