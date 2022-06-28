@@ -34,8 +34,3 @@ build() {
 package() {
 	python3 setup.py install --prefix=/usr --root="$pkgdir"
 }
-
-sha512sums="
-b08816b5b6db2081004f94966a8a0055cf39e5a72ee43f8645a36aa28b700e2ea5ff5f84d93e8e9c6e5256ee686dbb99f4263b7b5f95f7cf517a3084dbce97b5  scipy-1.7.2.tar.xz
-df346dc84e4ec6773e1e7fe21dccf6d124c8a498d4daba77d3abd399fef1aa711b9799541c5e7b6b3ee209c738817cc2680810dcd2c4ee61686292536e6b00d1  missing-int64_t.patch
-"
