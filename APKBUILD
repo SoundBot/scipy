@@ -1,0 +1,41 @@
+# Contributor: Martell Malone <martellmalone@gmail.com>
+# Maintainer:
+pkgname=py3-scipy
+pkgver=1.7.2
+pkgrel=0
+pkgdesc="Python library for scientific computing"
+url="https://www.scipy.org/"
+arch="all !mips !mips64"  # limited by py3-numpy
+license="BSD-3-Clause"
+depends="py3-numpy-f2py"
+makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
+	python3-dev py3-pybind11-dev"
+source="https://github.com/scipy/scipy/releases/download/v$pkgver/scipy-$pkgver.tar.xz
+	missing-int64_t.patch
+	"
+builddir="$srcdir"/scipy-$pkgver
+
+replaces=py-scipy # Backwards compatibility
+provides=py-scipy=$pkgver-r$pkgrel # Backwards compatibility
+
+# TODO: remove when aport is available
+export SCIPY_USE_PYTHRAN=0
+export LDFLAGS="$LDFLAGS -shared"
+# scipy is a huge library (~60 MiB) optimized for performance, so compiling
+# with -Os to sacrifice performance for a few megabytes doesn't make sense.
+export CFLAGS=${CFLAGS/-Os/-O2}
+export CXXFLAGS=${CXXFLAGS/-Os/-O2}
+export CPPFLAGS=${CPPFLAGS/-Os/-O2}
+
+build() {
+	python3 setup.py config_fc --fcompiler=gnu95 build
+}
+
+package() {
+	python3 setup.py install --prefix=/usr --root="$pkgdir"
+}
+
+sha512sums="
+b08816b5b6db2081004f94966a8a0055cf39e5a72ee43f8645a36aa28b700e2ea5ff5f84d93e8e9c6e5256ee686dbb99f4263b7b5f95f7cf517a3084dbce97b5  scipy-1.7.2.tar.xz
+df346dc84e4ec6773e1e7fe21dccf6d124c8a498d4daba77d3abd399fef1aa711b9799541c5e7b6b3ee209c738817cc2680810dcd2c4ee61686292536e6b00d1  missing-int64_t.patch
+"
