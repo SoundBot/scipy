@@ -43,6 +43,8 @@ snapshot() {
 
 build() {
 	echo "**** building  *****"
+	cd "$srcdir"
+	cd scipy
 	pwd
 	python3 setup.py config_fc --fcompiler=gnu95 build
 }
