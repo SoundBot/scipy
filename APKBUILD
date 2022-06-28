@@ -42,7 +42,7 @@ fetch() {
 	pwd
 }
 
-verify() {
+checksum() {
 	echo "*** verify ***"
 	pwd
 }
