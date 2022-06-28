@@ -10,10 +10,11 @@ license="BSD-3-Clause"
 depends="py3-numpy-f2py"
 makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
 	python3-dev py3-pybind11-dev"
-source="https://github.com/scipy/scipy/releases/download/v$pkgver/scipy-$pkgver.tar.xz
+com="34506555aa9d222e26db57964cd195650efcc9d7"
+source="https://github.com/scipy/scipy/archive/$com.zip
 	missing-int64_t.patch
 	"
-builddir="$srcdir"/scipy-$pkgver
+builddir="$srcdir"/scipy-$com
 
 replaces=py-scipy # Backwards compatibility
 provides=py-scipy=$pkgver-r$pkgrel # Backwards compatibility
