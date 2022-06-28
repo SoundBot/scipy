@@ -29,6 +29,7 @@ export CXXFLAGS=${CXXFLAGS/-Os/-O2}
 export CPPFLAGS=${CPPFLAGS/-Os/-O2}
 
 build() {
+	git submodule update --init
 	python3 setup.py config_fc --fcompiler=gnu95 build
 }
 
