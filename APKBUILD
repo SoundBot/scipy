@@ -30,7 +30,7 @@ fetch() {
 	echo "****** fetching  ******"
 	pwd
 	if [ ! -d "$srcdir" ]; then
-		if [ ! -d "$SRCDEST" ]; then
+		if [ ! -d "$SRCDEST"/scipy ]; then
 			echo "** Dir doesnt exist, creating... **"
 			mkdir -p "$srcdir"
 			cd "${SRCDEST:-$srcdir}"
