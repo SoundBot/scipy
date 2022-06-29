@@ -58,6 +58,7 @@ fetch() {
 
 unpack() {
 	echo "**** unpack  *****"
+	mkdir -p "$srcdir"
 	cp /home/appuser/missing-int64_t.patch "$srcdir"
 	cd "$srcdir"
 	pwd
