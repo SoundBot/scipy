@@ -1,11 +1,14 @@
 FROM python:3.11.0b3-alpine3.15
 
-RUN apk add wget alpine-sdk sudo python3-dev
+RUN apk add wget alpine-sdk sudo
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 RUN addgroup appuser abuild
 
-RUN cp /usr/include/python3.9/*.h /usr/include/
+RUN wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0b3.tgz
+RUN tar zxvf Python-3.11.0b3.tgz
+RUN cp -r ./Python-3.11.0b3/Include/. /usr/include/
+RUN cd /usr/include/ && ls
 
 RUN echo "%abuild ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/abuild
 
