@@ -74,7 +74,7 @@ prepare() {
     echo "**** prepare  *****"
     cd /usr/include/
     ls
-    cp /usr/include/python3.9/*.h /usr/include/python3/
+    cp /usr/include/python3.9/*.h /usr/include/
     pwd
     default_prepare
     echo "**** end prepare  *****"
