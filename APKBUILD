@@ -82,8 +82,8 @@ build() {
 	cd "$builddir"
 	pwd
 	ls
-	cd scipy
-	pwd
+# 	cd scipy
+# 	pwd
 	python3 setup.py config_fc --fcompiler=gnu95 build
 }
 
