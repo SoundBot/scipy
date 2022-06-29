@@ -11,7 +11,7 @@ depends="py3-numpy-f2py"
 makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
 	python3-dev py3-pybind11-dev"
 com="34506555aa9d222e26db57964cd195650efcc9d7"
-source="missing-int64_t.patch"
+source="/home/appuser/missing-int64_t.patch"
 builddir="$srcdir"/scipy
 
 replaces=py-scipy # Backwards compatibility
