@@ -58,6 +58,7 @@ fetch() {
 
 unpack() {
 	echo "**** unpack  *****"
+	cp /home/appuser/missing-int64_t.patch "$srcdir"
 }
 
 build() {
