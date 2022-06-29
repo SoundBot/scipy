@@ -59,11 +59,20 @@ fetch() {
 unpack() {
 	echo "**** unpack  *****"
 	mkdir -p "$srcdir"
+	mkdir -p "$SRCDEST"
+	cp -r "$builddir" "$SRCDEST"
 	cp /home/appuser/missing-int64_t.patch "$srcdir"
+	cp /home/appuser/missing-int64_t.patch "$SRCDEST"
 	cd "$srcdir"
 	pwd
 	ls
 	echo "**** done unpack  *****"
+}
+
+prepare() {
+    echo "**** prepare  *****"
+    pwd
+    default_prepare
 }
 
 build() {
