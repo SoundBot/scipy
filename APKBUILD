@@ -10,7 +10,7 @@ license="BSD-3-Clause"
 depends="py3-numpy-f2py"
 makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
 	python3-dev py3-pybind11-dev"
-source=".
+source="https://github.com/scipy/scipy/archive/master.zip
 	missing-int64_t.patch
 "
 builddir="$srcdir"/scipy
