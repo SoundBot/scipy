@@ -46,7 +46,7 @@ fetch() {
 			echo "$SRCDEST"
 			cp /home/appuser/missing-int64_t.patch "$srcdir"
 			mkdir -p "$builddir"
-			cp -r "$SRCDEST"/. "$builddir"
+			cp -r "$SRCDEST"/scipy/. "$builddir"
 		else
 			echo " Src dest exists"
 		fi
