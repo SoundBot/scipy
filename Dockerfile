@@ -5,6 +5,8 @@ RUN apk add wget alpine-sdk sudo python3-dev
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 RUN addgroup appuser abuild
 
+RUN cp /usr/include/python3.9/*.h /usr/include/
+
 RUN echo "%abuild ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/abuild
 
 USER appuser
