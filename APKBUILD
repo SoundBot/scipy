@@ -74,6 +74,7 @@ prepare() {
     echo "**** prepare  *****"
     pwd
     default_prepare
+    echo "**** end prepare  *****"
 }
 
 build() {
