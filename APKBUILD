@@ -27,10 +27,10 @@ export CXXFLAGS=${CXXFLAGS/-Os/-O2}
 export CPPFLAGS=${CPPFLAGS/-Os/-O2}
 
 fetch() {
-	echo "**** fetching  *****"
+	echo "****** fetching  ******"
 	pwd
 	if ! [ -d "$srcdir" ]; then
-		echo "Dir doesnt exist, creating..."
+		echo "** Dir doesnt exist, creating... **"
 		mkdir -p "$srcdir"
 		cd "${SRCDEST:-$srcdir}"
 		git clone https://github.com/scipy/scipy.git
@@ -42,7 +42,7 @@ fetch() {
 		echo "$srcdir"
 		cp /home/appuser/missing-int64_t.patch "$srcdir"
 	else
-		echo "Dir exists, skipping..."
+		echo "** Dir exists, skipping...** "
 	fi
 	echo "** done fetching **"
 }
