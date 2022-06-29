@@ -36,8 +36,10 @@ fetch() {
 	pwd
 	git checkout "$com"
 	git submodule update --init
-	cp /home/appuser/missing-int64_t.patch .
-	pwd
+	echo "source dir"
+	echo "$srcdir"
+	cp /home/appuser/missing-int64_t.patch "$srcdir"
+	echo "** done fetching **"
 }
 
 build() {
