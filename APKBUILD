@@ -29,7 +29,7 @@ export CPPFLAGS=${CPPFLAGS/-Os/-O2}
 fetch() {
 	echo "****** fetching  ******"
 	pwd
-	if ! [ -d "$srcdir" ]; then
+	if [ ! -d "$srcdir" ]; then
 		echo "** Dir doesnt exist, creating... **"
 		mkdir -p "$srcdir"
 		cd "${SRCDEST:-$srcdir}"
