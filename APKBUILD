@@ -63,7 +63,8 @@ unpack() {
 	cp -r "$builddir" "$SRCDEST"
 	cp /home/appuser/missing-int64_t.patch "$srcdir"
 	cp /home/appuser/missing-int64_t.patch "$SRCDEST"
-	cd "$srcdir"
+	cp /home/appuser/missing-int64_t.patch "$builddir"
+	cd "$builddir"
 	pwd
 	ls
 	echo "**** done unpack  *****"
