@@ -30,17 +30,21 @@ fetch() {
 	echo "****** fetching  ******"
 	pwd
 	if [ ! -d "$srcdir" ]; then
-		echo "** Dir doesnt exist, creating... **"
-		mkdir -p "$srcdir"
-		cd "${SRCDEST:-$srcdir}"
-		git clone https://github.com/scipy/scipy.git
-		cd scipy
-		pwd
-		git checkout "$com"
-		git submodule update --init
-		echo "source dir:"
-		echo "$srcdir"
-		cp /home/appuser/missing-int64_t.patch "$srcdir"
+		if [ ! -d "$SRCDEST" ]; then
+			echo "** Dir doesnt exist, creating... **"
+			mkdir -p "$srcdir"
+			cd "${SRCDEST:-$srcdir}"
+			git clone https://github.com/scipy/scipy.git
+			cd scipy
+			pwd
+			git checkout "$com"
+			git submodule update --init
+			echo "source dir:"
+			echo "$srcdir"
+			cp /home/appuser/missing-int64_t.patch "$srcdir"
+		else
+			echo " Src dest exists"
+		fi
 	else
 		echo "** Dir exists, skipping...** "
 	fi
