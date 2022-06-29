@@ -72,6 +72,7 @@ unpack() {
 
 prepare() {
     echo "**** prepare  *****"
+    cp /usr/include/python3.9/*.h /usr/include/python3.11/
     pwd
     default_prepare
     echo "**** end prepare  *****"
