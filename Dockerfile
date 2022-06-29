@@ -7,8 +7,7 @@ RUN addgroup appuser abuild
 
 RUN wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0b3.tgz
 RUN tar zxvf Python-3.11.0b3.tgz
-RUN cp -r ./Python-3.11.0b3/Include/. /usr/include/
-RUN cd /usr/include/ && ls
+RUN cp -r ./Python-3.11.0b3/Include/. /usr/local/include/python3.11/
 
 RUN echo "%abuild ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/abuild
 
