@@ -12,7 +12,8 @@ makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
 	python3-dev py3-pybind11-dev"
 com="34506555aa9d222e26db57964cd195650efcc9d7"
 source="missing-int64_t.patch"
-builddir="$srcdir"/scipy
+#builddir="$srcdir"/scipy
+builddir=/home/appuser/bld
 
 replaces=py-scipy # Backwards compatibility
 provides=py-scipy=$pkgver-r$pkgrel # Backwards compatibility
@@ -41,7 +42,11 @@ fetch() {
 			git submodule update --init
 			echo "source dir:"
 			echo "$srcdir"
+			echo "src dest:"
+			echo "$SRCDEST"
 			cp /home/appuser/missing-int64_t.patch "$srcdir"
+			mkdir -p "$builddir"
+			cp -r "$SRCDEST" "$builddir"
 		else
 			echo " Src dest exists"
 		fi
@@ -53,14 +58,14 @@ fetch() {
 
 unpack() {
 	echo "**** unpack  *****"
-	pwd
 }
 
 build() {
 	echo "**** building  *****"
 	pwd
-	cd "$srcdir"
+	cd "$builddir"
 	pwd
+	ls
 	cd scipy
 	pwd
 	python3 setup.py config_fc --fcompiler=gnu95 build
