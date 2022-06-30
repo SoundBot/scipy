@@ -91,5 +91,7 @@ build() {
 package() {
 	echo "**** package  *****"
 	pwd
-	python3 setup.py install --prefix=/usr --root="$pkgdir"
+	python3 setup.py bdist_wheel
+	cp -r ./dist/ "$pkgdir"
+	ls
 }
