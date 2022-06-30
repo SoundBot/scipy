@@ -91,6 +91,7 @@ build() {
 package() {
 	echo "**** package  *****"
 	pwd
+	mkdir -p "$pkgdir"
 	python3 setup.py bdist_wheel
 	cp -r ./dist/ "$pkgdir"
 	ls
