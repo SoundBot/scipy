@@ -8,7 +8,7 @@ url="https://www.scipy.org/"
 arch="all !mips !mips64"  # limited by py3-numpy
 license="BSD-3-Clause"
 depends="py3-numpy-f2py"
-makedepends="cython gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
+makedepends="gfortran openblas-dev>=0.3.0 py3-numpy-dev py3-setuptools
 	python3-dev py3-pybind11-dev"
 com="b1035509d1024e5428c977da2822a15193a49211"
 source="missing-int64_t.patch"
